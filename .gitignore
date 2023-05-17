@@ -1,4 +1,11 @@
 *
+
+!photo-cyclone-4.jpg
 !LICENSE
 !.gitignore
 !README.md
+
+!up16
+!*.vhd
+!*.hex
+!block_diagram*
