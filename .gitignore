@@ -9,3 +9,6 @@
 !*.vhd
 !*.hex
 !block_diagram*
+!*.qsf
+!*.qws
+!*.sof
