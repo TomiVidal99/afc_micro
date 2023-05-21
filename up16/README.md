@@ -23,12 +23,23 @@ Here lays the description of a 16 bits micro controller in VHDL.
 ![Blocks diagram](./block_diagram.jpg)
 
 ## Processor Instructions
-| Description           | Pseudo name | HEX     | BINARY
-| :-------------------- | :---------: | :-----: | -----:
-| clears register RX    | CLR_RX      | 0000    | 0000000000000000
-| increments by 1 RX    | INC_RX      | 0100    | 0000000100000000
-| loads RX with a number of 8 bits in the 8 LSB of the instruction  | INC_RX      | 01XX    | 00000001XXXXXXXX
-| decrements by 1 RX    | DEC_RX      | 0300    | 0000001100000000
+| Description                       | Pseudo name | HEX     | BINARY
+| :-------------------------------- | :---------: | :-----: | -----:
+| clears register RX                | CLR_RX      | 0000    | 0000000000000000
+| increments by 1 RX                | INC_RX      | 0100    | 0000000100000000
+| loads RX with the given data      | LDI_RX      | 0200    | 0000001000000000
+| decrements by 1 RX                | DEC_RX      | 0300    | 0000001100000000
+| no operation                      | NOP         | 0400    | 0000010000000000
+| loads RX with data given a memory direction     | LDD_RX | 0500    | 0000010100000000
+| stores RX data given a memory direction         | STR_RX | 0600    | 0000011000000000
+| loads to RX the sum of RX and a memory | RX_MEM_SUM | 0708    | 0000011100001000 
+| loads to RX the sum of RX and a memory and the carry | RX_MEM_C_SUM | 0709    | 0000011100001001 
+| loads to RX the remainder of RX and a memory | RX_MEM_REM | 070A    | 0000011100001010 
+| loads to RX the remainder of RX and a memory and the carry | RX_MEM_C_REM | 070B    | 0000011100001000 
+| loads to RX with NOT RX | RX_MEM_SUM | 0711    | 0000011100010001 
+| loads to RX the sum of RX and a memory | RX_MEM_SUM | 0708    | 0000011100001000 
+
+##### all _'given data'_ it's thought to be given as the next 16 bits instruction.
 
 ## Contact
 

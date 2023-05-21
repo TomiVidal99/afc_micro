@@ -51,8 +51,8 @@ entity up16 is
 
 	Port (    clock_up16 	    : in std_logic;
 		       reset_up16 	    : in std_logic;
-			    PORT_A            : out std_logic_vector (7 downto 0);    
-			    PORT_B            : in std_logic_vector (7 downto 0)
+			    PORT_A            : out std_logic_vector (15 downto 0);    
+			    PORT_B            : in std_logic_vector (15 downto 0)
 			);	 
 	end up16;
 
@@ -226,11 +226,11 @@ architecture Comportamiento of up16 is
 	end component;
 
 	component REGPA
-	Port ( entradaregpa : in std_logic_vector(7 downto 0);
-			 selcoderegpa : in std_logic_vector(2 downto 0);
-			 salidaregpa  : out std_logic_vector(7 downto 0);
+	Port ( entradaregpa : in std_logic_vector(15 downto 0);
+			 selcoderegpa : in std_logic_vector(3 downto 0);
+			 salidaregpa  : out std_logic_vector(15 downto 0);
 			 opselecregpa : in std_logic_vector (2 downto 0);
-			 salidacode   : out std_logic_vector (7 downto 0);			 
+			 salidacode   : out std_logic_vector (15 downto 0);			 
 			 resetregpa   : in std_logic;
 			 clockregpa   : in std_logic); 
 	end component;	
@@ -243,8 +243,8 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	end component;
 
    component REGPB
-		Port ( entradaregpb : in std_logic_vector(7 downto 0);
-				 salidaregpb : out std_logic_vector(7 downto 0);
+		Port ( entradaregpb : in std_logic_vector(15 downto 0);
+				 salidaregpb : out std_logic_vector(15 downto 0);
 				 escribirregpb : in std_logic;
 				 clockregpb : in std_logic);	
 		end component;
@@ -319,10 +319,10 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	signal clockccr 							: std_logic;
 	signal resetccr 							: std_logic;	
 
-	signal entradaregpa 						: std_logic_vector(7 downto 0);
-	signal selcoderegpa 						: std_logic_vector(2 downto 0);
-	signal salidaregpa  						: std_logic_vector(7 downto 0);
-	signal salidacode                   : std_logic_vector (7 downto 0); 
+	signal entradaregpa 						: std_logic_vector(15 downto 0);
+	signal selcoderegpa 						: std_logic_vector(3 downto 0);
+	signal salidaregpa  						: std_logic_vector(15 downto 0);
+	signal salidacode                   : std_logic_vector (15 downto 0); 
 	signal opselecregpa 						: std_logic_vector (2 downto 0);
 	signal resetregpa   						: std_logic;
 	signal clockregpa   						: std_logic;	
@@ -332,8 +332,8 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	signal salidamuxmdri   					:  std_logic_vector(15 downto 0);
 	signal selecmuxmdri    					:  std_logic;		
 	
-   signal entradaregpb 						: std_logic_vector(7 downto 0);
-	signal salidaregpb 						: std_logic_vector(7 downto 0);
+   signal entradaregpb 						: std_logic_vector(15 downto 0);
+	signal salidaregpb 						: std_logic_vector(15 downto 0);
 	signal escribirregpb 					: std_logic;
 	signal clockregpb 						: std_logic;	
 	
@@ -1529,14 +1529,14 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 				state_cu <= X"84";
 
 			when 133 =>                --Atiende TEST BIT I, SKIP IF CLR de PORT_B 
-				result_and <= salidacode and salidaregpb;
+				result_and <= salidacode(7 downto 0) and salidaregpb(7 downto 0);
 				if (result_and = cero) then proximoestado <= 48; --Carga nuevo valor de PC
 				else proximoestado <= 15;		--Incrementar PC  --> volver a state 1)			
 				end if;
 				state_cu <= X"85";		
 
 			when 134 =>                --Atiende TEST BIT I, SKIP IF CLR de PORT_B
-				result_and <= salidacode and salidaregpb;
+				result_and <= salidacode(7 downto 0) and salidaregpb(7 downto 0);
 				if (result_and = cero) then proximoestado <= 15;				
 				else proximoestado <= 48; --Carga nuevo valor de PC
 				end if;
@@ -1583,13 +1583,12 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 		entradaccr (16) <= carryoutalu;
 		zero <= salidaccr(0);
 		carryout <= salidaccr(1);
-		entradamuxmdri0 <= q;
-		entradamuxmdri1(15 downto 8) <= X"00"; 
-		entradamuxmdri1(7 downto 0) <= salidaregpb;
+		entradamuxmdri0 <= q; 
+		entradamuxmdri1 <= salidaregpb;
 		entradaregpb <= PORT_B;
 		entradamdri <= salidamuxmdri;
-		entradaregpa <= salidarx(7 downto 0);
-		selcoderegpa <= salidair(7 downto 5); --REGPA recibe el codigo de bit desde IR		
+		entradaregpa <= salidarx;
+		selcoderegpa <= salidair(7 downto 4); --REGPA recibe el codigo de bit desde IR		
 		PORT_A <= salidaregpa;
 end Comportamiento;
 

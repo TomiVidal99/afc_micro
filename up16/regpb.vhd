@@ -4,8 +4,8 @@ use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
 entity REGPB is
-		Port ( entradaregpb : in std_logic_vector(7 downto 0);
-				 salidaregpb : out std_logic_vector(7 downto 0);
+		Port ( entradaregpb : in std_logic_vector(15 downto 0);
+				 salidaregpb : out std_logic_vector(15 downto 0);
 				 escribirregpb : in std_logic;
 				 clockregpb : in std_logic);
 end REGPB;
