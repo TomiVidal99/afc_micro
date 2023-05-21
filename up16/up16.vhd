@@ -340,7 +340,7 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	signal state_cu                     : std_logic_vector (7 downto 0);
    signal zero                         : std_logic;
 	signal carryout                     : std_logic; 
-	signal result_and                   : std_logic_vector (7 downto 0);
+	signal result_and                   : std_logic_vector (15 downto 0);
 	
 	begin
 	
@@ -1529,14 +1529,14 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 				state_cu <= X"84";
 
 			when 133 =>                --Atiende TEST BIT I, SKIP IF CLR de PORT_B 
-				result_and <= salidacode(7 downto 0) and salidaregpb(7 downto 0);
+				result_and <= salidacode and salidaregpb;
 				if (result_and = cero) then proximoestado <= 48; --Carga nuevo valor de PC
 				else proximoestado <= 15;		--Incrementar PC  --> volver a state 1)			
 				end if;
 				state_cu <= X"85";		
 
 			when 134 =>                --Atiende TEST BIT I, SKIP IF CLR de PORT_B
-				result_and <= salidacode(7 downto 0) and salidaregpb(7 downto 0);
+				result_and <= salidacode and salidaregpb;
 				if (result_and = cero) then proximoestado <= 15;				
 				else proximoestado <= 48; --Carga nuevo valor de PC
 				end if;

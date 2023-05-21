@@ -19,7 +19,7 @@ entity REGPA is
 	
 	begin
 	with selcoderegpa select
-		salidacode_r <= 	X"0001" when "0000", --"00000001" bit 0
+		salidacode_r <= 	X"0001" when "0000", --"0000000000000001" bit 0
 							X"0002" when "0001", --"0000000000000010" bit 1
 							X"0004" when "0010", --"0000000000000100" bit 2
 							X"0008" when "0011", --"0000000000001000" bit 3
