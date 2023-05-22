@@ -8,6 +8,8 @@ Here lays the description of a 16 bits micro controller in VHDL.
 - [Technologies Used](#technologies-used)
 - [Block diagrams of the design](#blocks-diagrams)
 - [Processor instructions](#processor-instructions)
+- [FPGA not detected in Quartus](#fpga-not-detected-in-quartus)
+
 
 ## General Information
     It's a 16 bits micro controller, meaning that the I/O ports (port A and port B) can be controlled bit by bit.
@@ -40,6 +42,9 @@ Here lays the description of a 16 bits micro controller in VHDL.
 | loads to RX the sum of RX and a memory | RX_MEM_SUM | 0708    | 0000011100001000 
 
 ##### all _'given data'_ it's thought to be given as the next 16 bits instruction.
+
+## FPGA not detected in Quartus
+If you get an error that the FPGA won't detect the FPGA you just have to install manually the driver found in the Quartus installation directory, inside the _'drivers'_ folder.
 
 ## Contact
 
