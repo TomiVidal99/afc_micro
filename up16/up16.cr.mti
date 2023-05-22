@@ -1,0 +1,166 @@
+/home/tomii/Github/afc_micro/up16/ir.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/ir.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity IR
+-- Compiling architecture Comportamiento of IR
+
+} {} {}} /home/tomii/Github/afc_micro/up16/tb_regpa.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/tb_regpa.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity tb_regpa
+-- Compiling architecture A1 of tb_regpa
+
+} {} {}} /home/tomii/Github/afc_micro/up16/alur.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/alur.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity ALUR
+-- Compiling architecture Comportamiento of ALUR
+
+} {} {}} /home/tomii/Github/afc_micro/up16/div_clk.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/div_clk.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity div_clk
+-- Compiling architecture Behavioral of div_clk
+
+} {} {}} /home/tomii/Github/afc_micro/up16/mdri.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/mdri.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDRI
+-- Compiling architecture Comportamiento of MDRI
+
+} {} {}} /home/tomii/Github/afc_micro/up16/muxrx.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/muxrx.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MUXRX
+-- Compiling architecture Comportamiento of MUXRX
+
+} {} {}} /home/tomii/Github/afc_micro/up16/ccr.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/ccr.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity CCR
+-- Compiling architecture Comportamiento of CCR
+
+} {} {}} /home/tomii/Github/afc_micro/up16/ix.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/ix.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity IX
+-- Compiling architecture Comportamiento of IX
+
+} {} {}} /home/tomii/Github/afc_micro/up16/rx.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/rx.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity rx
+-- Compiling architecture Comportamiento of rx
+
+} {} {}} /home/tomii/Github/afc_micro/up16/mdro.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/mdro.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MDRO
+-- Compiling architecture Comportamiento of MDRO
+
+} {} {}} /home/tomii/Github/afc_micro/up16/muxmar.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/muxmar.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MUXMAR
+-- Compiling architecture Comportamiento of MUXMAR
+
+} {} {}} /home/tomii/Github/afc_micro/up16/up16.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/up16.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity up16
+-- Compiling architecture Comportamiento of up16
+
+} {} {}} /home/tomii/Github/afc_micro/up16/pc16r.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/pc16r.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity PC16R
+-- Compiling architecture Comportamiento of PC16R
+
+} {} {}} /home/tomii/Github/afc_micro/up16/muxmdri.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/muxmdri.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MUXMDRI
+-- Compiling architecture Comportamiento of MUXMDRI
+
+} {} {}} /home/tomii/Github/afc_micro/up16/mar16.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/mar16.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity MAR16
+-- Compiling architecture Comportamiento of MAR16
+
+} {} {}} /home/tomii/Github/afc_micro/up16/regpb.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/regpb.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_arith
+-- Loading package STD_LOGIC_UNSIGNED
+-- Compiling entity REGPB
+-- Compiling architecture Comportamiento of REGPB
+
+} {} {}} /home/tomii/Github/afc_micro/up16/ram.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/tomii/Github/afc_micro/up16/ram.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package altera_mf_components
+-- Compiling entity ram
+-- Compiling architecture SYN of ram
+
+} {} {}}

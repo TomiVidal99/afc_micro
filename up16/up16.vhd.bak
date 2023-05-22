@@ -47,16 +47,19 @@ use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
 use ieee.std_logic_unsigned.all;
 
-entity up16 is
+entity cu8_tst is
 
-	Port (    clock_up16 	    : in std_logic;
+	Port ( clock_up16 	    : in std_logic;
 		       reset_up16 	    : in std_logic;
-			    PORT_A            : out std_logic_vector (15 downto 0);    
-			    PORT_B            : in std_logic_vector (15 downto 0)
+			    PORT_A            : out std_logic_vector (7 downto 0);    
+			    PORT_B            : in std_logic_vector (7 downto 0);
+			    out_rx            : out std_logic_vector (15 downto 0);
+			    out_state_cu      : out std_logic_vector (7 downto 0);
+			    out_salidair      : out std_logic_vector (15 downto 0)	 
 			);	 
-	end up16;
+	end cu8_tst;
 
-architecture Comportamiento of up16 is
+architecture Comportamiento of cu8_tst is
 
    --------   CONSTANTES PARA EL SET DE INSTRUCCIONES ----------------
 	constant CLR_RX 					: std_logic_vector(15 downto 0) := X"0000";
@@ -226,11 +229,11 @@ architecture Comportamiento of up16 is
 	end component;
 
 	component REGPA
-	Port ( entradaregpa : in std_logic_vector(15 downto 0);
-			 selcoderegpa : in std_logic_vector(3 downto 0);
-			 salidaregpa  : out std_logic_vector(15 downto 0);
+	Port ( entradaregpa : in std_logic_vector(7 downto 0);
+			 selcoderegpa : in std_logic_vector(2 downto 0);
+			 salidaregpa  : out std_logic_vector(7 downto 0);
 			 opselecregpa : in std_logic_vector (2 downto 0);
-			 salidacode   : out std_logic_vector (15 downto 0);			 
+			 salidacode   : out std_logic_vector (7 downto 0);			 
 			 resetregpa   : in std_logic;
 			 clockregpa   : in std_logic); 
 	end component;	
@@ -243,8 +246,8 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	end component;
 
    component REGPB
-		Port ( entradaregpb : in std_logic_vector(15 downto 0);
-				 salidaregpb : out std_logic_vector(15 downto 0);
+		Port ( entradaregpb : in std_logic_vector(7 downto 0);
+				 salidaregpb : out std_logic_vector(7 downto 0);
 				 escribirregpb : in std_logic;
 				 clockregpb : in std_logic);	
 		end component;
@@ -319,10 +322,10 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	signal clockccr 							: std_logic;
 	signal resetccr 							: std_logic;	
 
-	signal entradaregpa 						: std_logic_vector(15 downto 0);
-	signal selcoderegpa 						: std_logic_vector(3 downto 0);
-	signal salidaregpa  						: std_logic_vector(15 downto 0);
-	signal salidacode                   : std_logic_vector (15 downto 0); 
+	signal entradaregpa 						: std_logic_vector(7 downto 0);
+	signal selcoderegpa 						: std_logic_vector(2 downto 0);
+	signal salidaregpa  						: std_logic_vector(7 downto 0);
+	signal salidacode                   : std_logic_vector (7 downto 0); 
 	signal opselecregpa 						: std_logic_vector (2 downto 0);
 	signal resetregpa   						: std_logic;
 	signal clockregpa   						: std_logic;	
@@ -332,15 +335,15 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 	signal salidamuxmdri   					:  std_logic_vector(15 downto 0);
 	signal selecmuxmdri    					:  std_logic;		
 	
-   signal entradaregpb 						: std_logic_vector(15 downto 0);
-	signal salidaregpb 						: std_logic_vector(15 downto 0);
+   signal entradaregpb 						: std_logic_vector(7 downto 0);
+	signal salidaregpb 						: std_logic_vector(7 downto 0);
 	signal escribirregpb 					: std_logic;
 	signal clockregpb 						: std_logic;	
 	
 	signal state_cu                     : std_logic_vector (7 downto 0);
    signal zero                         : std_logic;
 	signal carryout                     : std_logic; 
-	signal result_and                   : std_logic_vector (15 downto 0);
+	signal result_and                   : std_logic_vector (7 downto 0);
 	
 	begin
 	
@@ -988,7 +991,7 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 --				escribirmdri <= '0';
 --				escribirmdro <= '0';
 				state_cu <= X"25";				
-	         proximoestado <= 38; 			
+				proximoestado <= 52;				
 				
 			when 38 =>   
             selecmuxrx <= '1';			
@@ -1172,7 +1175,7 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 				state_cu <= X"31";
 			
    	when 50 =>
-			if  (zero = '1' or salidarx = X"0000") then proximoestado <= 48;
+			if  zero = '1' then proximoestado <= 48;
 			else proximoestado <= 15;
 			end if;
 			state_cu <= X"32";
@@ -1545,14 +1548,7 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
   		when others => null;
 		end case;		
 	end process;	
-
-	process (salidair)
-		begin
-			if salidair(0) = '0' then carryinalu <= '0';
-			else carryinalu <= carryout;
-			end if;
-	end process;
-	
+		
 		clock_in_div <= clock_up16;
 		clock <= clock_out_div;
 		clockpc <= clock_out_div;		
@@ -1583,13 +1579,17 @@ Port ( entradamuxmdri0      : in std_logic_vector(15 downto 0);
 		entradaccr (16) <= carryoutalu;
 		zero <= salidaccr(0);
 		carryout <= salidaccr(1);
-		entradamuxmdri0 <= q; 
-		entradamuxmdri1 <= salidaregpb;
+		entradamuxmdri0 <= q;
+		entradamuxmdri1(15 downto 8) <= X"00"; 
+		entradamuxmdri1(7 downto 0) <= salidaregpb;
 		entradaregpb <= PORT_B;
 		entradamdri <= salidamuxmdri;
-		entradaregpa <= salidarx;
-		selcoderegpa <= salidair(7 downto 4); --REGPA recibe el codigo de bit desde IR		
+		entradaregpa <= salidarx(7 downto 0);
+		selcoderegpa <= salidair(7 downto 5); --REGPA recibe el codigo de bit desde IR		
 		PORT_A <= salidaregpa;
+		out_rx  <= salidarx; 
+		out_state_cu  <= state_cu; 
+		out_salidair   <= salidair;
 end Comportamiento;
 
 --    EN VHDL, EN VEZ DE USAR LA "X" DE DONT'CARE SE DEBE EMPLEAR EL SIGNO "-". 
